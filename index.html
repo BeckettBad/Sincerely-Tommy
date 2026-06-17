@@ -30,6 +30,7 @@
   header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
   .brand{font-size:17px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+  .brand img{width:auto;height:34px;object-fit:contain;display:block}
   .nav nav{display:flex;gap:30px}
   .nav nav a{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--soft);transition:color .2s}
   .nav nav a:hover{color:var(--ink)}
@@ -37,8 +38,12 @@
   .burger{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.12em;background:none;border:0;cursor:pointer;text-transform:uppercase}
 
   /* hero */
-  .hero{position:relative;height:86vh;min-height:520px;overflow:hidden}
-  .hero img{position:absolute;inset:0;filter:saturate(.96)}
+  .hero{position:relative;height:86vh;min-height:520px;overflow:hidden;background:#efece5}
+  .collage{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr)}
+  .tile{position:relative;overflow:hidden;background:#efece5}
+  .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;filter:saturate(.96);animation:revolve 18s ease-in-out infinite}
+  @keyframes revolve{0%{opacity:0}5%{opacity:1}28%{opacity:1}38%{opacity:0}100%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){.tile img{animation:none}.tile img:first-child{opacity:1}}
   .hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.45) 100%)}
   .hero .cap{position:absolute;left:0;right:0;bottom:0;padding:40px 32px;color:#fff}
   .hero .cap .wrap{padding:0 32px}
@@ -120,6 +125,7 @@
 
   @media(max-width:900px){
     .nav nav{display:none}.burger{display:block}
+    .collage{grid-template-columns:repeat(2,1fr)}
     .grid{grid-template-columns:repeat(2,1fr);gap:28px 18px}
     .worlds .row{grid-template-columns:1fr;gap:34px}
     .che .inner{grid-template-columns:1fr;gap:36px;padding:56px 0}
@@ -135,7 +141,7 @@
 
 <header>
   <div class="wrap nav">
-    <div class="brand">Sincerely, Tommy</div>
+    <a class="brand" href="#" aria-label="Sincerely, Tommy"><img src="https://sincerelytommy.com/cdn/shop/files/logo_1_130x@2x.png?v=1613755520" alt="Sincerely, Tommy"></a>
     <nav>
       <a href="#new">Shop</a>
       <a href="#worlds">Worlds</a>
@@ -154,7 +160,28 @@
 
 <!-- HERO -->
 <section class="hero">
-  <img src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3611_d7ace9da-15e1-496d-99f4-a0506cd098e4.jpg?v=1762550787&width=1800" alt="Sincerely, Tommy">
+  <div class="collage" aria-hidden="true">
+    <div class="tile">
+      <img loading="eager" style="animation-delay:0s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3611_d7ace9da-15e1-496d-99f4-a0506cd098e4.jpg?v=1762550787&width=900" alt="">
+      <img loading="lazy" style="animation-delay:-6s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3110.jpg?v=1762550734&width=900" alt="">
+      <img loading="lazy" style="animation-delay:-12s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/F748A144-40DF-4531-B2AB-AD7A8D709D98_1_52b9978f-99da-4f79-a9f7-4a6b8fbfd2b4.jpg?v=1762207287&width=900" alt="">
+    </div>
+    <div class="tile">
+      <img loading="eager" style="animation-delay:-2s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3213_2.jpg?v=1762263402&width=900" alt="">
+      <img loading="lazy" style="animation-delay:-8s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3379.jpg?v=1762206915&width=900" alt="">
+      <img loading="lazy" style="animation-delay:-14s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_2715.jpg?v=1762205331&width=900" alt="">
+    </div>
+    <div class="tile">
+      <img loading="eager" style="animation-delay:-4s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/3F47691F-4004-4EA7-A6F4-2AD22E89C3F7_389092d5-308a-46f8-82d7-07e42e7ee3e3.jpg?v=1762263935&width=900" alt="">
+      <img loading="lazy" style="animation-delay:-10s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3187.jpg?v=1762203971&width=900" alt="">
+      <img loading="lazy" style="animation-delay:-16s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/40D83037-E2B0-4550-B7BA-244E870D9D39.jpg?v=1760315307&width=900" alt="">
+    </div>
+    <div class="tile">
+      <img loading="eager" style="animation-delay:-1s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3328.jpg?v=1762551083&width=900" alt="">
+      <img loading="lazy" style="animation-delay:-7s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/66A80EC7-358B-4F88-BF5F-EE918C39A773.jpg?v=1762547209&width=900" alt="">
+      <img loading="lazy" style="animation-delay:-13s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3641.jpg?v=1762196142&width=900" alt="">
+    </div>
+  </div>
   <div class="veil"></div>
   <div class="cap">
     <div class="wrap">
