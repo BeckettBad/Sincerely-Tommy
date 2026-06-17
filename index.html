@@ -88,20 +88,30 @@
 
   /* che */
   .che{background:var(--cream)}
-  .che .inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;padding:80px 0;align-items:center}
+  .che .inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;padding:80px 0;align-items:start}
   .che .lab{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
   .che h2{font-size:clamp(30px,4vw,48px);font-weight:500;letter-spacing:-.015em;margin:12px 0 16px}
   .che h2.che-logo{margin:8px 0 16px;line-height:0}
   .che h2.che-logo img{width:auto;height:88px;object-fit:contain;display:block;mix-blend-mode:multiply}
   .che p{font-size:15.5px;color:#4a463d;line-height:1.65;max-width:46ch;margin-bottom:26px}
+  /* digital menu card */
+  .che .menucard{border:1px solid var(--line);background:var(--bg);padding:28px 30px}
+  .che .menucard .head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:18px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+  .che .menucard .head .t{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+  .che .menucard .head .h{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
   .che .menu{display:flex;flex-direction:column}
-  .che .menu .sect{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:26px 0 4px}
-  .che .menu .sect:first-child{margin-top:0}
-  .che .menu .item{padding:12px 0;border-bottom:1px solid rgba(0,0,0,.08)}
-  .che .menu .item .top{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
-  .che .menu .item .nm{font-size:15px;font-weight:500;letter-spacing:-.005em}
+  .che .menu .sect{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);padding-bottom:7px;margin:24px 0 4px;border-bottom:1px solid var(--line)}
+  .che .menu .item{padding:8px 0;border-bottom:1px solid var(--line)}
+  .che .menu .item:last-child{border-bottom:0}
+  .che .menu .item .top{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+  .che .menu .item .nm{font-size:14px;font-weight:500;letter-spacing:-.005em}
+  .che .menu .item .nm .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;color:var(--soft);margin-left:7px;white-space:nowrap}
   .che .menu .item .pr{font-family:var(--mono);font-size:12px;color:var(--soft);white-space:nowrap}
-  .che .menu .item .ds{font-size:12.5px;color:var(--soft);line-height:1.55;margin-top:5px;max-width:46ch}
+  /* natural wine as its own bordered subsection */
+  .che .menu .wine{border:1px solid var(--line);padding:16px 18px 6px;margin-top:26px}
+  .che .menu .wine .sect{margin-top:0}
+  .che .menu .wine .cap{font-size:12px;color:var(--soft);line-height:1.55;margin-top:10px}
+  .che .menucard .note{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-top:20px}
   .che .info{margin-top:26px;display:flex;gap:38px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;line-height:1.8}
   .che a.cta{display:inline-block;margin-top:26px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);padding:13px 26px;transition:.2s}
   .che a.cta:hover{background:var(--ink);color:var(--cream)}
@@ -243,37 +253,51 @@
       <a class="cta" href="#che">Reserve a table →</a>
     </div>
     <div>
-      <div class="lab" style="margin-bottom:20px">Day Menu — served 10AM–5PM</div>
-      <div class="menu">
-        <div class="sect">To Start</div>
-        <div class="item">
-          <div class="top"><span class="nm">Che's Cereal</span><span class="pr">14</span></div>
-          <div class="ds">House granola, coconut yogurt, seasonal fruit.</div>
-        </div>
+      <div class="menucard">
+        <div class="head"><span class="t">Day Menu</span><span class="h">Served 10AM – 5PM</span></div>
+        <div class="menu">
+          <div class="sect">Coffee &amp; Tea</div>
+          <div class="item"><div class="top"><span class="nm">Filter Coffee</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Espresso</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Cortado</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Macchiato</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Cappuccino</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Matcha Cappuccino</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Iced Coconut Matcha</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Chai</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Affogato</span><span class="pr">—</span></div></div>
 
-        <div class="sect">Plates</div>
-        <div class="item">
-          <div class="top"><span class="nm">Kitchari &amp; Okra Roti</span><span class="pr">18</span></div>
-          <div class="ds">Spiced moong dal, basmati, warm roti.</div>
-        </div>
-        <div class="item">
-          <div class="top"><span class="nm">Yuca Colcannon</span><span class="pr">16</span></div>
-          <div class="ds">Whipped yuca, braised greens, brown butter.</div>
-        </div>
-        <div class="item">
-          <div class="top"><span class="nm">Turmeric-Ginger Moong Bean</span><span class="pr">15</span></div>
-          <div class="ds">Slow-cooked beans, coconut, lime.</div>
-        </div>
-        <div class="item">
-          <div class="top"><span class="nm">Local Kale &amp; Fried Okra</span><span class="pr">13</span></div>
-          <div class="ds">Brooklyn kale, crisp okra, chili oil.</div>
-        </div>
+          <div class="sect">To Start</div>
+          <div class="item"><div class="top"><span class="nm">Cereal <span class="tag">(gf)</span></span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">French Toast</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Green Goddess Salad</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Seasonal Salad <span class="tag">(v, gf)</span></span><span class="pr">—</span></div></div>
 
-        <div class="sect">Sweet</div>
-        <div class="item">
-          <div class="top"><span class="nm">Apple-Ginger Purée</span><span class="pr">11</span></div>
-          <div class="ds">Stewed apple, candied ginger, oat crumble.</div>
+          <div class="sect">Plates</div>
+          <div class="item"><div class="top"><span class="nm">Miso Beets</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Charred Broccolini</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Roasted Carrots &amp; Shallots <span class="tag">(v, gf)</span></span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Cauliflower Steak <span class="tag">(gf)</span></span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Gnocchi</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Market Fish</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Tofu Patty</span><span class="pr">—</span></div></div>
+
+          <div class="sect">Sweet</div>
+          <div class="item"><div class="top"><span class="nm">Banana Bread <span class="tag">(v)</span></span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Guava Cheese Turnover</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Flourless Chocolate Cake</span><span class="pr">—</span></div></div>
+          <div class="item"><div class="top"><span class="nm">Coconut Macaroon <span class="tag">(v, gf)</span></span><span class="pr">—</span></div></div>
+
+          <div class="wine">
+            <div class="sect">Natural Wine</div>
+            <div class="item"><div class="top"><span class="nm">White</span><span class="pr">—</span></div></div>
+            <div class="item"><div class="top"><span class="nm">Orange</span><span class="pr">—</span></div></div>
+            <div class="item"><div class="top"><span class="nm">Red</span><span class="pr">—</span></div></div>
+            <div class="item"><div class="top"><span class="nm">Sparkling</span><span class="pr">—</span></div></div>
+            <div class="cap">By the glass · NY · South Africa · Spain</div>
+          </div>
         </div>
+        <div class="note">(v) Vegan · (gf) Gluten-free · Prices to confirm</div>
       </div>
     </div>
   </div>
