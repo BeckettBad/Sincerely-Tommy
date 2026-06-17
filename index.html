@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sincerely, Tommy — Homepage Concept</title>
+<style>
+  :root{
+    --bg:#FBFAF7;
+    --ink:#15140F;
+    --soft:#6b675e;
+    --line:#E7E4DC;
+    --cream:#F1ECE1;
+    --sans:"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,"Courier New",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;width:100%;height:100%;object-fit:cover}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 32px}
+  .mono{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .soft{color:var(--soft)}
+
+  /* discreet concept note */
+  .concept{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#a39e93;text-align:center;padding:8px 16px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-size:17px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+  .nav nav{display:flex;gap:30px}
+  .nav nav a{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--soft);transition:color .2s}
+  .nav nav a:hover{color:var(--ink)}
+  .nav .cart{font-family:var(--mono);font-size:11px;letter-spacing:.13em;color:var(--soft)}
+  .burger{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.12em;background:none;border:0;cursor:pointer;text-transform:uppercase}
+
+  /* hero */
+  .hero{position:relative;height:86vh;min-height:520px;overflow:hidden}
+  .hero img{position:absolute;inset:0;filter:saturate(.96)}
+  .hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.45) 100%)}
+  .hero .cap{position:absolute;left:0;right:0;bottom:0;padding:40px 32px;color:#fff}
+  .hero .cap .wrap{padding:0 32px}
+  .hero .lab{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+  .hero h1{font-size:clamp(28px,4vw,52px);font-weight:500;letter-spacing:-.01em;line-height:1.05;margin:14px 0 18px;max-width:18ch}
+  .hero a.cta{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff;border-bottom:1px solid rgba(255,255,255,.7);padding-bottom:3px}
+
+  /* intro */
+  .intro{text-align:center;padding:74px 0 64px}
+  .intro p{font-size:clamp(19px,2.1vw,26px);font-weight:400;line-height:1.5;max-width:24ch;margin:0 auto;letter-spacing:-.01em}
+  .intro p span{color:var(--soft)}
+  .intro .small{font-size:14px;color:var(--soft);max-width:54ch;margin:20px auto 0;line-height:1.6;letter-spacing:0;text-transform:none;font-family:var(--sans)}
+
+  /* section head */
+  .shead{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:24px}
+  .shead h2{font-size:15px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .shead .r{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+
+  /* product grid */
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 26px;padding-bottom:30px}
+  .card .ph{aspect-ratio:3/4;overflow:hidden;background:#efece5}
+  .card .ph img{transition:transform .6s ease}
+  .card:hover .ph img{transform:scale(1.03)}
+  .card .meta{display:flex;justify-content:space-between;gap:10px;margin-top:12px;align-items:baseline}
+  .card .no{font-family:var(--mono);font-size:10px;color:var(--soft);letter-spacing:.08em}
+  .card .nm{font-size:13.5px;font-weight:500;line-height:1.25}
+  .card .dz{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--soft);margin-top:3px}
+  .card .pr{font-family:var(--mono);font-size:12px;white-space:nowrap}
+  .viewall{text-align:center;padding:14px 0 84px}
+  .viewall a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);padding:13px 26px;display:inline-block;transition:.2s}
+  .viewall a:hover{background:var(--ink);color:var(--bg)}
+
+  /* worlds */
+  .worlds{border-top:1px solid var(--line);padding:64px 0}
+  .worlds .row{display:grid;grid-template-columns:repeat(3,1fr);gap:50px}
+  .w h3{font-size:20px;font-weight:500;letter-spacing:-.01em;margin:14px 0 8px}
+  .w .n{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--soft)}
+  .w p{font-size:14.5px;color:var(--soft);line-height:1.6;margin-bottom:14px;max-width:34ch}
+  .w .addr{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;line-height:1.8}
+  .w a.go{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:2px;display:inline-block;margin-top:14px}
+  .w .topline{border-top:1px solid var(--ink);padding-top:16px}
+
+  /* che */
+  .che{background:var(--cream)}
+  .che .inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;padding:80px 0;align-items:center}
+  .che .lab{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+  .che h2{font-size:clamp(30px,4vw,48px);font-weight:500;letter-spacing:-.015em;margin:12px 0 16px}
+  .che p{font-size:15.5px;color:#4a463d;line-height:1.65;max-width:46ch;margin-bottom:26px}
+  .che .menu{display:flex;flex-direction:column}
+  .che .menu .sect{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:26px 0 4px}
+  .che .menu .sect:first-child{margin-top:0}
+  .che .menu .item{padding:12px 0;border-bottom:1px solid rgba(0,0,0,.08)}
+  .che .menu .item .top{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+  .che .menu .item .nm{font-size:15px;font-weight:500;letter-spacing:-.005em}
+  .che .menu .item .pr{font-family:var(--mono);font-size:12px;color:var(--soft);white-space:nowrap}
+  .che .menu .item .ds{font-size:12.5px;color:var(--soft);line-height:1.55;margin-top:5px;max-width:46ch}
+  .che .info{margin-top:26px;display:flex;gap:38px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;line-height:1.8}
+  .che a.cta{display:inline-block;margin-top:26px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);padding:13px 26px;transition:.2s}
+  .che a.cta:hover{background:var(--ink);color:var(--cream)}
+
+  /* newsletter */
+  .news{text-align:center;padding:84px 0;border-top:1px solid var(--line)}
+  .news h2{font-size:clamp(22px,2.6vw,32px);font-weight:500;letter-spacing:-.01em;margin-bottom:10px}
+  .news p{color:var(--soft);font-size:15px;margin-bottom:26px}
+  .news form{display:flex;max-width:420px;margin:0 auto;border-bottom:1px solid var(--ink)}
+  .news input{flex:1;border:0;background:transparent;padding:12px 4px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;outline:none;color:var(--ink)}
+  .news button{border:0;background:transparent;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;padding:0 4px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:54px 0 30px}
+  .foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px}
+  .foot .brand{font-size:18px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+  .foot .brand p{font-size:13.5px;color:var(--soft);margin-top:10px;max-width:30ch;font-weight:400;text-transform:none;letter-spacing:0;line-height:1.6}
+  .foot h5{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
+  .foot a,.foot span.l{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);line-height:2}
+  .foot a:hover{color:var(--soft)}
+  .legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:40px;padding-top:18px;border-top:1px solid var(--line)}
+  .legal span{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--soft)}
+
+  @media(max-width:900px){
+    .nav nav{display:none}.burger{display:block}
+    .grid{grid-template-columns:repeat(2,1fr);gap:28px 18px}
+    .worlds .row{grid-template-columns:1fr;gap:34px}
+    .che .inner{grid-template-columns:1fr;gap:36px;padding:56px 0}
+    .foot{grid-template-columns:1fr 1fr}
+    #mob{display:none;border-top:1px solid var(--line)}
+  }
+  @media(max-width:520px){.foot{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept">Homepage concept for Sincerely, Tommy · designed &amp; built by Beckett Badertscher · for review only</div>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">Sincerely, Tommy</div>
+    <nav>
+      <a href="#new">Shop</a>
+      <a href="#worlds">Worlds</a>
+      <a href="#che">Eat &amp; Stay</a>
+      <a href="#news">Journal</a>
+    </nav>
+    <button class="burger" onclick="var m=document.getElementById('mob');m.style.display=m.style.display==='block'?'none':'block'">Menu</button>
+    <div class="cart">Bag (0)</div>
+  </div>
+  <div id="mob" style="display:none">
+    <div class="wrap" style="padding:14px 32px;display:flex;flex-direction:column;gap:12px">
+      <a class="mono" href="#new">Shop</a><a class="mono" href="#worlds">Worlds</a><a class="mono" href="#che">Eat &amp; Stay</a><a class="mono" href="#news">Journal</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3611_d7ace9da-15e1-496d-99f4-a0506cd098e4.jpg?v=1762550787&width=1800" alt="Sincerely, Tommy">
+  <div class="veil"></div>
+  <div class="cap">
+    <div class="wrap">
+      <div class="lab">Autumn / Winter — New Arrivals</div>
+      <h1>A shop, a kitchen, and a community in Bed-Stuy.</h1>
+      <a class="cta" href="#new">Shop new arrivals →</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="wrap">
+    <p>Emerging womenswear, considered objects, <span>and seasonal food.</span></p>
+    <p class="small">Sincerely, Tommy is a Brooklyn lifestyle store and in-house kitchen, focused on emerging designers, distinctive lifestyle goods, and community — gathered in one place.</p>
+  </div>
+</section>
+
+<!-- NEW ARRIVALS -->
+<section id="new" class="wrap">
+  <div class="shead">
+    <h2>New Arrivals</h2>
+    <span class="r">01 — 08 / Updated weekly</span>
+  </div>
+  <div class="grid">
+    <a class="card" href="#new"><div class="ph"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0622/1337/files/7EC97CBF-5F1E-4868-BF0F-2BDDEB8537A3_ce1c5530-2ad8-478a-bbc3-fa479c1ca2dd.jpg?v=1760033638&width=760" alt="Bibio Lana Dress"></div><div class="meta"><div><div class="no">01</div><div class="nm">Lana Dress</div><div class="dz">Bibio</div></div><div class="pr">$270</div></div></a>
+    <a class="card" href="#new"><div class="ph"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0622/1337/files/40D83037-E2B0-4550-B7BA-244E870D9D39.jpg?v=1760315307&width=760" alt="Green Turtleneck"></div><div class="meta"><div><div class="no">02</div><div class="nm">Sheer Turtleneck — Green</div><div class="dz">Sincerely, Tommy</div></div><div class="pr">$180</div></div></a>
+    <a class="card" href="#new"><div class="ph"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0622/1337/files/06696D11-EBDA-4511-AEDA-BEB5849679F3.jpg?v=1760035336&width=760" alt="Bryce Red Hoodie"></div><div class="meta"><div><div class="no">03</div><div class="nm">Bryce Hoodie</div><div class="dz">Sincerely, Tommy</div></div><div class="pr">$140</div></div></a>
+    <a class="card" href="#new"><div class="ph"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0622/1337/files/B9592501-F7B4-4970-915F-849FAA16FB85.jpg?v=1760315552&width=760" alt="Black Mock Neck Windbreaker"></div><div class="meta"><div><div class="no">04</div><div class="nm">Mock Neck Windbreaker</div><div class="dz">Sincerely, Tommy</div></div><div class="pr">$130</div></div></a>
+    <a class="card" href="#new"><div class="ph"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0622/1337/files/C1F838E6-D299-4043-AFB2-28E449066589_cc50b4ef-e4b1-408c-926e-92b54d42e8a7.jpg?v=1760063683&width=760" alt="Lulu Mock Neck Sweater"></div><div class="meta"><div><div class="no">05</div><div class="nm">Lulu Mock Neck Sweater</div><div class="dz">Sincerely, Tommy</div></div><div class="pr">$90</div></div></a>
+    <a class="card" href="#new"><div class="ph"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0622/1337/files/13DF2264-30CA-4345-944E-B70E9360079E_77c65119-34f2-4da0-b545-9c8a7fc256b2.jpg?v=1760315345&width=760" alt="Blue Turtleneck"></div><div class="meta"><div><div class="no">06</div><div class="nm">Sheer Turtleneck — Blue</div><div class="dz">Sincerely, Tommy</div></div><div class="pr">$180</div></div></a>
+    <a class="card" href="#new"><div class="ph"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DDFA0553-06E4-4452-9113-48022AF45F6E_5fc6e74a-9579-4036-805d-cdb22df4fc8b.jpg?v=1760315381&width=760" alt="Purple Turtleneck"></div><div class="meta"><div><div class="no">07</div><div class="nm">Sheer Turtleneck — Purple</div><div class="dz">Sincerely, Tommy</div></div><div class="pr">$180</div></div></a>
+    <a class="card" href="#new"><div class="ph"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0622/1337/files/3F47691F-4004-4EA7-A6F4-2AD22E89C3F7_389092d5-308a-46f8-82d7-07e42e7ee3e3.jpg?v=1762263935&width=760" alt="Sloane Pant"></div><div class="meta"><div><div class="no">08</div><div class="nm">Sloane Pant</div><div class="dz">Sincerely, Tommy</div></div><div class="pr">$140</div></div></a>
+  </div>
+  <div class="viewall"><a href="#new">View all new arrivals →</a></div>
+</section>
+
+<!-- WORLDS -->
+<section id="worlds" class="worlds">
+  <div class="wrap">
+    <div class="shead"><h2>Three places, one Tommy</h2><span class="r">Bed-Stuy &amp; beyond</span></div>
+    <div class="row">
+      <div class="w"><div class="topline"><div class="n">01 — The Shop</div><h3>The Shop</h3><p>A tightly edited lineup of emerging womenswear, jewelry, objects and wellness.</p><div class="addr soft">343 Tompkins Ave<br>Brooklyn, NY 11216</div><a class="go" href="#new">Shop →</a></div></div>
+      <div class="w"><div class="topline"><div class="n">02 — Eat &amp; Stay</div><h3>Che</h3><p>Bed-Stuy's boutique hostel and seasonal eatery — day café, evening kitchen, natural wine.</p><div class="addr soft">302 Malcolm X Blvd<br>Brooklyn, NY 11233</div><a class="go" href="#che">The menu →</a></div></div>
+      <div class="w"><div class="topline"><div class="n">03 — Retreat</div><h3>S,T Well</h3><p>Our wellness space in Grenada, West Indies — the slow, restorative corner of the world.</p><div class="addr soft">Grenada, W.I.<br>By appointment</div><a class="go" href="#che">Learn more →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHE -->
+<section id="che" class="che">
+  <div class="wrap inner">
+    <div>
+      <div class="lab">02 — Eat &amp; Stay</div>
+      <h2>Che</h2>
+      <p>Opened in 2023 as a seasonal, vegetable-centric eatery and an extension of the shop. A warm, inviting room — day café, evening kitchen, and a natural-wine list spanning New York, South Africa &amp; Spain.</p>
+      <div class="info">
+        <div>Open Daily<br>10AM – 5PM</div>
+        <div>302 Malcolm X Blvd<br>Brooklyn, NY 11233</div>
+        <div>Reserve<br>Che@sincerelytommy.com</div>
+      </div>
+      <a class="cta" href="#che">Reserve a table →</a>
+    </div>
+    <div>
+      <div class="lab" style="margin-bottom:20px">Day Menu — served 10AM–5PM</div>
+      <div class="menu">
+        <div class="sect">To Start</div>
+        <div class="item">
+          <div class="top"><span class="nm">Che's Cereal</span><span class="pr">14</span></div>
+          <div class="ds">House granola, coconut yogurt, seasonal fruit.</div>
+        </div>
+
+        <div class="sect">Plates</div>
+        <div class="item">
+          <div class="top"><span class="nm">Kitchari &amp; Okra Roti</span><span class="pr">18</span></div>
+          <div class="ds">Spiced moong dal, basmati, warm roti.</div>
+        </div>
+        <div class="item">
+          <div class="top"><span class="nm">Yuca Colcannon</span><span class="pr">16</span></div>
+          <div class="ds">Whipped yuca, braised greens, brown butter.</div>
+        </div>
+        <div class="item">
+          <div class="top"><span class="nm">Turmeric-Ginger Moong Bean</span><span class="pr">15</span></div>
+          <div class="ds">Slow-cooked beans, coconut, lime.</div>
+        </div>
+        <div class="item">
+          <div class="top"><span class="nm">Local Kale &amp; Fried Okra</span><span class="pr">13</span></div>
+          <div class="ds">Brooklyn kale, crisp okra, chili oil.</div>
+        </div>
+
+        <div class="sect">Sweet</div>
+        <div class="item">
+          <div class="top"><span class="nm">Apple-Ginger Purée</span><span class="pr">11</span></div>
+          <div class="ds">Stewed apple, candied ginger, oat crumble.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="news" class="news">
+  <div class="wrap">
+    <h2>Join the community</h2>
+    <p>First looks, new designers, and dinners at Che.</p>
+    <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you'">
+      <input type="email" placeholder="EMAIL ADDRESS" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot">
+    <div class="brand">Sincerely, Tommy
+      <p>A Brooklyn lifestyle store, kitchen &amp; community. Est. Bed-Stuy.</p>
+    </div>
+    <div>
+      <h5>The Shop</h5>
+      <span class="l">343 Tompkins Ave</span><span class="l">Brooklyn, NY 11216</span>
+    </div>
+    <div>
+      <h5>Che — Eat &amp; Stay</h5>
+      <span class="l">302 Malcolm X Blvd</span><span class="l">Daily 10–5</span>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <a href="https://www.instagram.com/sincerelytommy_/">Instagram</a>
+      <a href="#">Newsletter</a>
+      <a href="#">S,T Well · Grenada</a>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <span>© 2026 Sincerely, Tommy — concept</span>
+    <span>Concept designed &amp; built by Beckett Badertscher · +1 917-930-8805</span>
+  </div>
+</footer>
+
+</body>
+</html>
