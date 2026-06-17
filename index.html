@@ -160,30 +160,34 @@
 
 <!-- HERO -->
 <section class="hero">
+  <!-- Aligned 4-stage rotation: opens on 4 clothing (stage 0), then 2 clothing + 2 food
+       at every rotating stage. Per column the 4 frames are time-ordered S0..S3 with shared
+       delays -2.25s / 2.25s / 6.75s / 11.25s. Food placement (verified 2-at-a-time):
+       col1 S1 · col2 S1,S2 · col3 S2,S3 · col4 S3. -->
   <div class="collage" aria-hidden="true">
     <div class="tile">
-      <img loading="eager" style="animation-delay:0s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3611_d7ace9da-15e1-496d-99f4-a0506cd098e4.jpg?v=1762550787&width=900" alt="">
-      <img loading="lazy" style="animation-delay:-4.5s" src="assets/che/che-food.webp" alt="Che — seasonal vegetable plate">
-      <img loading="lazy" style="animation-delay:-9s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3110.jpg?v=1762550734&width=900" alt="">
-      <img loading="lazy" style="animation-delay:-13.5s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/F748A144-40DF-4531-B2AB-AD7A8D709D98_1_52b9978f-99da-4f79-a9f7-4a6b8fbfd2b4.jpg?v=1762207287&width=900" alt="">
+      <img loading="eager" style="animation-delay:-2.25s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3611_d7ace9da-15e1-496d-99f4-a0506cd098e4.jpg?v=1762550787&width=900" alt="">
+      <img loading="lazy" style="animation-delay:2.25s" src="assets/che/che-food.webp" alt="Che — seasonal vegetable plate">
+      <img loading="lazy" style="animation-delay:6.75s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3110.jpg?v=1762550734&width=900" alt="">
+      <img loading="lazy" style="animation-delay:11.25s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/F748A144-40DF-4531-B2AB-AD7A8D709D98_1_52b9978f-99da-4f79-a9f7-4a6b8fbfd2b4.jpg?v=1762207287&width=900" alt="">
     </div>
     <div class="tile">
-      <img loading="eager" style="animation-delay:-1s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3213_2.jpg?v=1762263402&width=900" alt="">
-      <img loading="lazy" style="animation-delay:-5.5s" src="assets/che/che-coffeetable.webp" alt="Che — café lounge and coffee table">
-      <img loading="lazy" style="animation-delay:-10s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3379.jpg?v=1762206915&width=900" alt="">
-      <img loading="lazy" style="animation-delay:-14.5s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_2715.jpg?v=1762205331&width=900" alt="">
+      <img loading="eager" style="animation-delay:-2.25s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3213_2.jpg?v=1762263402&width=900" alt="">
+      <img loading="lazy" style="animation-delay:2.25s" src="assets/che/che-cocktails.webp" alt="Che — cocktails at the counter">
+      <img loading="lazy" style="animation-delay:6.75s" src="assets/che/che-coffeetable.webp" alt="Che — café lounge and coffee table">
+      <img loading="lazy" style="animation-delay:11.25s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3379.jpg?v=1762206915&width=900" alt="">
     </div>
     <div class="tile">
-      <img loading="eager" style="animation-delay:-2s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/3F47691F-4004-4EA7-A6F4-2AD22E89C3F7_389092d5-308a-46f8-82d7-07e42e7ee3e3.jpg?v=1762263935&width=900" alt="">
-      <img loading="lazy" style="animation-delay:-6.5s" src="assets/che/che-wine-selection.webp" alt="Che — natural wine selection">
-      <img loading="lazy" style="animation-delay:-11s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3187.jpg?v=1762203971&width=900" alt="">
-      <img loading="lazy" style="animation-delay:-15.5s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/40D83037-E2B0-4550-B7BA-244E870D9D39.jpg?v=1760315307&width=900" alt="">
+      <img loading="eager" style="animation-delay:-2.25s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/3F47691F-4004-4EA7-A6F4-2AD22E89C3F7_389092d5-308a-46f8-82d7-07e42e7ee3e3.jpg?v=1762263935&width=900" alt="">
+      <img loading="lazy" style="animation-delay:2.25s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3187.jpg?v=1762203971&width=900" alt="">
+      <img loading="lazy" style="animation-delay:6.75s" src="assets/che/che-wine-selection.webp" alt="Che — natural wine selection">
+      <img loading="lazy" style="animation-delay:11.25s" src="assets/che/che-bowl.webp" alt="Che — seasonal grain bowl">
     </div>
     <div class="tile">
-      <img loading="eager" style="animation-delay:-3s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3328.jpg?v=1762551083&width=900" alt="">
-      <img loading="lazy" style="animation-delay:-7.5s" src="assets/che/che-cocktails.webp" alt="Che — cocktails at the counter">
-      <img loading="lazy" style="animation-delay:-12s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/66A80EC7-358B-4F88-BF5F-EE918C39A773.jpg?v=1762547209&width=900" alt="">
-      <img loading="lazy" style="animation-delay:-16.5s" src="assets/che/che-bowl.webp" alt="Che — seasonal grain bowl">
+      <img loading="eager" style="animation-delay:-2.25s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3328.jpg?v=1762551083&width=900" alt="">
+      <img loading="lazy" style="animation-delay:2.25s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/66A80EC7-358B-4F88-BF5F-EE918C39A773.jpg?v=1762547209&width=900" alt="">
+      <img loading="lazy" style="animation-delay:6.75s" src="https://cdn.shopify.com/s/files/1/0622/1337/files/DSC_3641.jpg?v=1762196142&width=900" alt="">
+      <img loading="lazy" style="animation-delay:11.25s" src="assets/che/che-food.webp" alt="Che — seasonal vegetable plate">
     </div>
   </div>
   <div class="veil"></div>
@@ -221,18 +225,6 @@
     <a class="card" href="#new"><div class="ph"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0622/1337/files/3F47691F-4004-4EA7-A6F4-2AD22E89C3F7_389092d5-308a-46f8-82d7-07e42e7ee3e3.jpg?v=1762263935&width=760" alt="Sloane Pant"></div><div class="meta"><div><div class="no">08</div><div class="nm">Sloane Pant</div><div class="dz">Sincerely, Tommy</div></div><div class="pr">$140</div></div></a>
   </div>
   <div class="viewall"><a href="#new">View all new arrivals →</a></div>
-</section>
-
-<!-- WORLDS -->
-<section id="worlds" class="worlds">
-  <div class="wrap">
-    <div class="shead"><h2>Three places, one Tommy</h2><span class="r">Bed-Stuy &amp; beyond</span></div>
-    <div class="row">
-      <div class="w"><div class="topline"><div class="n">01 — The Shop</div><h3>The Shop</h3><p>A tightly edited lineup of emerging womenswear, jewelry, objects and wellness.</p><div class="addr soft">343 Tompkins Ave<br>Brooklyn, NY 11216</div><a class="go" href="#new">Shop →</a></div></div>
-      <div class="w"><div class="topline"><div class="n">02 — Eat &amp; Stay</div><h3>Che</h3><p>Bed-Stuy's boutique hostel and seasonal eatery — day café, evening kitchen, natural wine.</p><div class="addr soft">302 Malcolm X Blvd<br>Brooklyn, NY 11233</div><a class="go" href="#che">The menu →</a></div></div>
-      <div class="w"><div class="topline"><div class="n">03 — Retreat</div><h3>S,T Well</h3><p>Our wellness space in Grenada, West Indies — the slow, restorative corner of the world.</p><div class="addr soft">Grenada, W.I.<br>By appointment</div><a class="go" href="#che">Learn more →</a></div></div>
-    </div>
-  </div>
 </section>
 
 <!-- CHE -->
@@ -282,6 +274,18 @@
           <div class="ds">Stewed apple, candied ginger, oat crumble.</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORLDS -->
+<section id="worlds" class="worlds">
+  <div class="wrap">
+    <div class="shead"><h2>Three places, one Tommy</h2><span class="r">Bed-Stuy &amp; beyond</span></div>
+    <div class="row">
+      <div class="w"><div class="topline"><div class="n">01 — The Shop</div><h3>The Shop</h3><p>A tightly edited lineup of emerging womenswear, jewelry, objects and wellness.</p><div class="addr soft">343 Tompkins Ave<br>Brooklyn, NY 11216</div><a class="go" href="#new">Shop →</a></div></div>
+      <div class="w"><div class="topline"><div class="n">02 — Eat &amp; Stay</div><h3>Che</h3><p>Bed-Stuy's boutique hostel and seasonal eatery — day café, evening kitchen, natural wine.</p><div class="addr soft">302 Malcolm X Blvd<br>Brooklyn, NY 11233</div><a class="go" href="#che">The menu →</a></div></div>
+      <div class="w"><div class="topline"><div class="n">03 — Retreat</div><h3>S,T Well</h3><p>Our wellness space in Grenada, West Indies — the slow, restorative corner of the world.</p><div class="addr soft">Grenada, W.I.<br>By appointment</div><a class="go" href="#che">Learn more →</a></div></div>
     </div>
   </div>
 </section>
